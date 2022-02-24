@@ -12,10 +12,29 @@
         "repo": {
             "type": "composer",
             "url": "https://repo.magento.com"
+        },
+        "eloom" : {"type": "composer", "url": "https://eloom.repo.repman.io"},
+        "xtento": {
+            "type": "composer",
+            "url": "https://repo.xtento.com"
         }
     },
     "require": {
-        "magento/magento-cloud-metapackage": ">=2.4.2 <2.4.3"
+        "eloom/module-core": "^1.0",
+        "eloom/module-payment": "^1.0",
+        "eloom/module-payu": "^1.0",
+        "eloom/module-payu-co": "1.0.3",
+        "facebook/graph-sdk": "^5.7",
+        "hybridauth/hybridauth": "^3.7",
+        "magento/magento-cloud-metapackage": ">=2.4.2 <2.4.3",
+        "mageplaza/module-google-recaptcha": "^4.0",
+        "mageplaza/module-smtp": "^4.5",
+        "mageplaza/module-two-factor-authentication": "^4.0",
+        "paypal/rest-api-sdk-php": "^1.14",
+        "sinergi/browser-detector": "^6.1",
+        "smile/elasticsuite": "~2.10.0",
+        "sonata-project/google-authenticator": "2.0",
+        "xtento/customtrackers": "^2.2"
     },
     "suggest": {
         "ext-pcntl": "Need for run processes in parallel mode"
