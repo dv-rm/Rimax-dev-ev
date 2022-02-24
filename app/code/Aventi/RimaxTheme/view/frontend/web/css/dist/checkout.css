@@ -1,0 +1,84 @@
+.titlePrimary {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 20px;
+  color: #012B59;
+}
+.titlePrimary:hover {
+  color: #1650C0;
+}
+.textSecundary {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #828282;
+  letter-spacing: -0.24px;
+}
+.titleProduct {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  color: #4F4F4F;
+  text-align: center;
+  letter-spacing: -0.24px;
+}
+.textBtnPrimary {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #F2F2F2;
+}
+.customeBtnPrimary {
+  background: #145094;
+  border-radius: 4px;
+  padding: 8px 20px 9px;
+  border: none !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #F2F2F2;
+}
+.customeBtnPrimary p,
+.customeBtnPrimary h1,
+.customeBtnPrimary h2,
+.customeBtnPrimary h1,
+.customeBtnPrimary span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #F2F2F2;
+}
+.customeBtnPrimary:hover {
+  background: #1650C0;
+}
+.display-none {
+  display: none !important;
+}
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item::before {
+  background: #99B3D2;
+  height: 2px !important;
+}
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item._active:before {
+  background: #99B3D2;
+}
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item._active span::before {
+  background: #003F86 !important;
+}
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item._active span::after {
+  background: #003F86 !important;
+}
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item span::before,
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item span::after {
+  left: 0px;
+  background: #99B3D2;
+  color: #fff;
+}
+.checkout-index-index #checkout .opc-progress-bar .opc-progress-bar-item:last-child ::before {
+  display: none;
+}

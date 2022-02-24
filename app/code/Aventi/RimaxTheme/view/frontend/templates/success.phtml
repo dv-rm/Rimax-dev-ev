@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div id="checkout">
+    <ul class="opc-progress-bar">
+        <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+        <li class="opc-progress-bar-item" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+            <span data-bind="i18n: item.title, click: $parent.navigateTo">Envío</span>
+        </li>
+
+        <li class="opc-progress-bar-item" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+            <span data-bind="i18n: item.title, click: $parent.navigateTo">Revisión y Pagos</span>
+        </li>
+        <!-- /ko -->
+        <li class="opc-progress-bar-item _active">
+            <span>Listo</span>
+        </li>
+    </ul>
+</div>
+
+
+<div class="checkout-success">
+    <div class="checkout-container">
+
+        <div class="img-container">
+            <div class="title-success">
+                <div class="border">Compra <span>Realizada</span> </div>
+            </div>
+
+            <div class="img">
+                <img class="success-desktop" src='<?php echo $this->getViewFileUrl('Aventi_RimaxTheme::images/success.png'); ?>'>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="success-mobile">
+            <img src='<?php echo $this->getViewFileUrl('Aventi_RimaxTheme::images/success-mobile.png'); ?>'>
+        </div>
+
+
+        <div class="text-container">
+
+            <p class="title"> La compra se ha realizado con éxito </p>
+
+            <p class="text">Hemos enviado un correo electrónico con la información detallada de la compra. Tu pedido llegará en un aprox:<span> 3 días.</span> Si deseas conocer el estado de tú pedido, puedes consultado con el “número de pedido” desde tu usuario.</p>
+
+            <p class="order-number"><?= $block->escapeHtml(__('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeUrl($block->getViewOrderUrl()), $block->getOrderId())), ['a', 'strong']) ?></p>
+
+            <p><?= $block->escapeHtml(__('Your order # is: <span>%1</span>.', $block->getOrderId()), ['span']) ?></p>
+
+
+        </div>
+
+    </div>
+
+    <p class=""></p>
+
+    <?= $block->getAdditionalInfoHtml() ?>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?= $block->escapeUrl($block->getContinueUrl()) ?>"><span><?= $block->escapeHtml(__('Continue Shopping')) ?></span></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['jquery', 'jquery/ui'], function($) {
+
+        $(window).ready(function() {
+            let headerDelete = document.querySelector("#html-body > main > div > header")
+            let topheader = $(".top-header-content")
+
+            $(".page-wrapper").before(topheader)
+
+            let logo = $(".logo-header")
+            let infoContainer = `<div class="logoContainer"> ${logo.html()} </div>  <div class="infoContainer"> <div> ¿Necesitas ayuda con tu compra?  <a href=""> Llámanos 350 310 0418 </a> </div> <div>  <a href="mailto:info@rimax.com.co"> Escríbenos info@rimax.com.co </a> <div> </div> </div>  </div>`
+            $(".breadcrumbs").html(infoContainer)
+            $(".breadcrumbs ").addClass("container_header_checkout")
+            $(".breadcrumbs ").removeClass("breadcrumbs")
+
+            headerDelete.remove()
+            $("#placeholder-header").remove()
+        })
+
+    });
+</script>

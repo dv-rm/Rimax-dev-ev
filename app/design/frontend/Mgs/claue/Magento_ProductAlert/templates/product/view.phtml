@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /* @var $block \Magento\ProductAlert\Block\Product\View */?>
+<div class="product alert <?= $block->getHtmlClass() ?>">
+    <p class="title-alert"><?php echo __("Este producto no está disponible") ?></p>
+    <a href="<?= $block->escapeUrl($block->getSignupUrl()) ?>"
+       title="<?= $block->escapeHtml(__($block->getSignupLabel())) ?>" class="btn active">
+        <?= $block->escapeHtml(__($block->getSignupLabel())) ?>
+    </a>
+</div>

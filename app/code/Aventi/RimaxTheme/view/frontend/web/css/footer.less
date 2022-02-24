@@ -1,0 +1,271 @@
+@import "variables.less";
+
+//Colors
+@blueP: #003F86;
+@bluePDark: #012B59;
+@white: #ffffff;
+@cBorder: #DBDBDB;
+@fondoProductos: #F2F3F7;
+@red: #E63727;
+@textColorp: #012B59;
+@textprimary: #4F4F4F;
+@textsecundary: #828282;
+@textwhite: #F2F2F2;
+@colorHover: #1650C0;
+
+//fuentes
+@popins: 'Poppins', sans-serif;
+
+//media screens
+
+@tablet: ~"(min-width: 768px)";
+@mobile: ~"(min-width: 480px)";
+@desktop: ~"(min-width: 1024px)";
+
+footer {
+    display: flex;
+    display: flex;
+    flex-direction: column-reverse;
+
+
+    .pagebuilder-column{
+        a > img{
+            width: 100%;
+        }
+    }
+
+    .footer-container {
+        .middle-footer {
+            background: @blueP;
+            border: none;
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                div:nth-child(1) {
+                    width: 110%;
+
+                    .margin-bottom25 {
+                        border-bottom: 1px solid #bdbdbd;
+                        padding-bottom: 18px;
+                        padding-left: 29px;
+
+                        a {
+                            opacity: 1;
+
+                            img {
+                                width: 165px;
+                            }
+                        }
+                    }
+                }
+
+
+                @media (max-width:990px) {
+
+                    div:nth-child(2) {
+                        width: 42% !important;
+                        min-width: 260px;
+                    }
+
+                    div:nth-child(4) {
+                        width: 30% !important;
+                        padding-left: 0% !important;
+                    }
+
+                    div:nth-child(5) {
+                        width: 20% !important;
+                        min-width: 144px !important;
+                        padding-left: 0% !important;
+                    }
+                }
+
+                div:nth-child(2),
+                div:nth-child(4),
+                div:nth-child(5) {
+                    h6 {
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 20px;
+                        letter-spacing: -0.24px;
+                        color: #fff;
+                        opacity: 1;
+                    }
+
+                    width: 33%;
+                }
+
+                div:nth-child(4)>h6 {
+                    text-align: center;
+                }
+
+
+                div:nth-child(2) {
+
+                    h6 {
+                        text-align: center;
+                        margin-bottom: 21px;
+
+                        ul{
+                            text-align: left;
+
+                            @media (max-width:592px) {
+                                margin-left: -24px;
+                            }
+                        }
+                    }
+                    
+
+                    svg {
+                        transform: scale(1.8);
+                        padding-top: 2px;
+                        padding-right: 4px;
+                    }
+                }
+
+                div:nth-child(4) {
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 5%;
+                }
+
+                div:nth-child(5) {
+                    padding-left: 13%;
+                }
+
+                .redes-sociales {
+                    display: flex;
+                    align-content: center;
+                    justify-content: space-around;
+
+                    li {
+                        transform: scale(1.5);
+
+                        a {
+                            opacity: 0.9 !important;
+
+                            &:hover {
+                                opacity: 1 !important;
+                            }
+                        }
+
+                    }
+                }
+
+
+            }
+
+            @media (max-width: 600px) {
+
+                #html-body > main > div > footer > div > div.middle-footer > div > div > div:nth-child(1){
+                    padding-bottom: 0px !important;
+                }
+
+                .row {
+
+                    flex-direction: column !important;
+
+                    div:nth-child(2) {
+                        width: 42% !important;
+                        min-width: 260px;
+
+                        li {
+                            width: 150%;
+
+                        }
+
+                        h6 {
+                            margin-left: 24px;
+                            text-align: left !important;
+                        }
+                    }
+
+                    div:nth-child(4) {
+                        width: 30% !important;
+                        padding-left: 0% !important;
+                        margin-left: 38px;
+
+                        h6 {
+                            text-align: left !important;
+                        }   
+
+                        ul.redes-sociales {
+                            justify-content: space-between;
+                            width: 248px;
+                            margin-left: 10px;
+                        }
+
+                    }
+
+                    div:nth-child(5) {
+                        width: 20% !important;
+                        min-width: 144px !important;
+                        padding-left: 0% !important;
+                        margin-left: 38px;
+                    }
+                }
+
+            }
+
+            span,
+            p,
+            a,
+            li {
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 27px;
+                color: @white;
+                opacity: 0.7;
+
+                &:hover {
+                    opacity: 1 !;
+                    color: @white;
+                }
+            }
+
+            .social-link {
+                li>a {
+                    color: @white;
+                    opacity: 1;
+                }
+            }
+
+        }
+
+        .bottom-footer {
+            background: @bluePDark;
+        }
+    }
+}
+
+
+@media (min-width:990px) {
+
+
+
+    footer .footer-container .middle-footer span, footer .footer-container .middle-footer p, footer .footer-container .middle-footer a, footer .footer-container .middle-footer li{
+        text-align: left;
+    }
+
+}
+
+
+@media (max-width:800px) {
+    footer{
+        .pagebuilder-column-group{
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+
+            .pagebuilder-column{
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+#html-body > main > div > footer > div.footer-container > div.middle-footer > div > div > div:nth-child(1) > div > div.margin-bottom25{
+    width: 100% ;
+}

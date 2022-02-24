@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"/>
+
+        <css rel="stylesheet" src="Aventi_RimaxTheme::css/styles.css"/>
+        <link src="Aventi_RimaxTheme::js/banner.js" />
+    </head>
+    <body>
+        <referenceContainer name="header.container">
+            <referenceBlock name="top.links">
+                <referenceBlock name="my-account-link" remove="true" />
+                <referenceBlock name="wish-list-link" remove="true" />
+                <referenceBlock name="multiple-wish-list-link" remove="true" />
+                <referenceBlock name="register-link" remove="true" />
+                <referenceBlock name="authorization-link" remove="true" />
+                <block class="Aventi\RimaxTheme\Block\Account\AuthorizationLink" name="custom-login-link" template="Aventi_RimaxTheme::login.phtml">
+                    <arguments>
+                        <argument name="sortOrder" xsi:type="number">50</argument>
+                    </arguments>
+                </block>
+                <block class="Aventi\RimaxTheme\Block\Account\RegisterLink" name="custom-register-link">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                    </arguments>
+                </block>
+                <block class="Aventi\RimaxTheme\Block\Account\Link" name="custom-my-account-link" template="Aventi_RimaxTheme::my-account.phtml">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                        <argument name="sortOrder" xsi:type="number">10</argument>
+                    </arguments>
+                </block>
+                <block class="Aventi\RimaxTheme\Block\Sales\Order" name="my-orders-link" template="Aventi_RimaxTheme::my-orders.phtml">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">My Orders</argument>
+                        <argument name="path" xsi:type="string">sales/order/history</argument>
+                        <argument name="sortOrder" xsi:type="number">20</argument>
+                    </arguments>
+                </block>
+                <block class="Aventi\RimaxTheme\Block\Account\Wishlist" name="my-wishlist-link" template="Aventi_RimaxTheme::my-whishlist.phtml">
+                    <arguments>
+                        <argument name="sortOrder" xsi:type="number">30</argument>
+                    </arguments>
+                </block>
+                <block class="Aventi\RimaxTheme\Block\Account\Address" name="my-addresses-link" template="Aventi_RimaxTheme::my-addresses.phtml">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Address Book</argument>
+                        <argument name="path" xsi:type="string">customer/address</argument>
+                        <argument name="sortOrder" xsi:type="number">40</argument>
+                    </arguments>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

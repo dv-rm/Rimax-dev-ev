@@ -1,0 +1,11 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Aventi_ShowOutOfStockSwatch::aventi_showoutofstockswatch" translate="title" title="Aventi" sortOrder="50">
+                    <resource id="Aventi_ShowOutOfStockSwatch::main" translate="title" title="Show out of Stock price" sortOrder="50"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

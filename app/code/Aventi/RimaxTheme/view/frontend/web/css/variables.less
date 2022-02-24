@@ -1,0 +1,100 @@
+//Colors
+@blueP: #003F86;
+@bluePDark: #012B59;
+@white: #ffffff;
+@cBorder: #DBDBDB;
+@fondoProductos: #F2F3F7;
+@red: #E63727;
+@textColorp: #012B59;
+@textprimary: #4F4F4F;
+@textsecundary: #828282;
+@textwhite: #F2F2F2;
+@colorHover: #1650C0;
+
+//fuentes
+@popins: 'Poppins', sans-serif;
+@nunito: 'Nunito', sans-serif;
+
+//media screens
+
+@tablet: ~"(min-width: 768px)";
+@mobile: ~"(min-width: 480px)";
+@desktop: ~"(min-width: 1024px)";
+
+// textos
+
+.titlePrimary {
+    font-family: @popins;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 20px;
+    color: @textColorp;
+
+    &:hover{
+        color: @colorHover;
+    }
+}
+
+.textSecundary {
+    font-family: @popins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: @textsecundary;
+    letter-spacing: -0.24px;
+}
+
+.titleProduct {
+    font-family: @popins;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: @textprimary;
+    text-align: center;
+    letter-spacing: -0.24px;
+}
+
+.textBtnPrimary{
+    font-family: @popins;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    color: @textwhite;
+}
+
+
+//btns
+
+.customeBtnPrimary {
+    background: #145094 !important;
+    border-radius: 4px;
+    padding: 8px 20px 9px;
+    border: none !important;
+    p,h1,h2,h1,span{
+        .textBtnPrimary()
+    }
+
+    *{
+        color: #F2F3F7  !important;
+    }
+
+    &:hover{
+        background: @colorHover;
+    }
+
+    .textBtnPrimary()
+}
+
+.display-none{
+    display: none !important;
+}
+#shipping-new-address-form > div.field[name="shippingAddress.custom_attributes.tag_address"]{
+    display: none !important;
+}
+
+
+#shipping-new-address-form div.field[name="shippingAddress.street.1"]{
+    display: none !important;
+}
+
+

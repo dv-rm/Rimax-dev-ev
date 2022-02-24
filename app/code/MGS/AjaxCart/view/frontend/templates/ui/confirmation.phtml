@@ -1,0 +1,180 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+
+?>
+<?php
+$cartSummary = $block->getCartSummary();
+$cartSummaryText = $cartSummary == 1 ? __('item') : __('items');
+?>
+<div class="popup__columns">
+    <div class="popup__column">
+        <div class="container-popUp">
+            <!--
+        <h2 class="title-primary">Añadiste</h2> -->
+
+
+            <?php if ($block->getIsCheckout()) ?>
+
+            <div class="container-tables-popup">
+                <div class="popup__table-col">
+                    <div class="popup__column--media">
+                        <?php echo $block->getChildHtml('product_image') ?>
+
+                    </div>
+
+                    <div class="description-container">
+
+                        <?php echo $block->getChildHtml('messages') ?>
+
+                        <div class="price">
+                            <p class="popup__result-title"><?php echo $block->escapeHtml(__('')) ?> <?php /* @noEscape */ echo $block->getCartSubtotal() ?></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup__table-col">
+                    <div class="popup__column--result">
+                        <?php if ($block->getIsCart()) { ?>
+                            <div class="popup__result-view-cart text-center"><button class="btn btn-xs btn-default" type="button" onclick="setLocation('<?php echo $block->getUrl('checkout/cart') ?>');"><?php echo $block->escapeHtml(__('View Cart')) ?></button></div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <?php if ($block->getIsCheckout()) : ?>
+        <div class="popup__actions-wrapper">
+            <button class="popup__action-redirect--checkout customeBtnPrimary" data-action="redirect-checkout" data-href="<?php /* @noEscape */ echo $block->getUrl('checkout') ?>"><?php echo $block->escapeHtml(__('Proceed to Checkout')) ?></button>
+        </div>
+    <?php endif ?>
+
+
+
+
+        <?php
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+        $product = $block->getProduct();
+
+        $_idParentProduct = $objectManager->create('Magento\ConfigurableProduct\Model\Product\Type\Configurable')->getParentIdsByChild($product->getId());
+
+
+        'Padre: ' . $_idParentProduct[0];
+        if (isset($_idParentProduct[0])) {
+            $_parentProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($_idParentProduct[0]);
+            'SKU Padre: ' . $_parentProduct->getSku();
+            $relatedProducts = $_parentProduct->getRelatedProducts();
+
+
+
+            if (!empty($relatedProducts)) {
+                echo '<div class="separator"><h4 class> Tambien te puede interesar: </h4> </div>    <div class="owl-carousel owl-theme related-products">' ;
+                $baseImage = $this->getViewFileUrl('MGS_Mpanel::images/blank.png');
+                $baseImageHover = $this->getViewFileUrl('MGS_Mpanel::images/blank.png');
+                foreach ($relatedProducts as $relatedProduct) {
+                    $_product = $objectManager->create('Magento\Catalog\Model\Product')->load($relatedProduct->getId());
+                    $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+                    $size = $themeHelper->getImageSize($this->getRatio());
+                    $productImage = $_imagehelper->init($_product, 'upsell_products_list')->resize($size['width'], $size['height'])->getUrl();
+                    $productImageHover = $_imagehelper->init($_product, 'product_thumbnail_image')->resize($size['width'], $size['height'])->getUrl();
+                    $_productNameStripped = $_product->getName();
+        ?>
+                    <div class="item ">
+
+                        <div class="product product-item">
+                            <div class="product-top">
+                                <?php // Product Image
+                                ?>
+                                <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" style="padding-bottom: 2px;" class="product photo product-item-photo <?php if ((basename($_product->getData('thumbnail')) !=  'no_selection') && (basename($_product->getData('thumbnail')) != basename($_product->getData('small_image')))) : ?> has-hover-image<?php endif ?>" tabindex="-1">
+
+                                    <img src="<?php echo $productImageHover; ?>" alt="<?php echo $_productNameStripped ?>" class="img-responsive img-hover-show" data-src="<?php echo $productImageHover ?>" />
+                                </a>
+                            </div>
+                            <div class="product details product-item-details">
+                                <div class="container-description">
+                                    <h5 class="product name product-item-name">
+                                        <a class="product-item-link" href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+                                            <?php echo $_productNameStripped ?>
+                                        </a>
+                                    </h5>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php /* @escapeNotVerified */ echo $_product->getId() ?>" data-price-box="product-id-<?php /* @escapeNotVerified */ echo $_product->getId() ?>">
+                                        <span class="normal-price">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="product-price-<?php /* @escapeNotVerified */ echo $_product->getId() ?>" data-price-amount="<?php echo round($_product->getFinalPrice(),0) ?>" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">
+                                                        $<?php echo number_format(round($_product->getFinalPrice(),0),0,',','.') ?>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+        <?php
+                    // echo $relatedProduct->getId() . '-->' . $_product->getFinalPrice() . '-->' . $_product->getName() . '-->' . $relatedProduct->getId();
+                }
+            }
+        }
+
+
+
+
+        ?>
+    </div>
+</div>
+
+<script>
+    require(["jquery"], function($) {
+        jQuery(document).ready(function() {
+
+            jQuery(' .mfp-mgs-quickview-frame').addClass('success-ajax--popup');
+            jQuery('.success-ajax--popup').removeClass('mfp-mgs-quickview-frame');
+            jQuery('.popup__action-close').click(function() {
+                jQuery('.mfp-close').trigger('click');
+            });
+            jQuery('.popup__result-view-cart').click(function() {
+                var url_cart_update = '<?php echo $this->getUrl('ajaxcart/index/updatecart') ?>';
+                jQuery.ajax({
+                    url: url_cart_update,
+                    method: "POST"
+                });
+                window.location.href = jQuery(this).attr('data-href');
+            })
+            jQuery('.popup__action-redirect--checkout').click(function() {
+                var url_cart_update = '<?php echo $this->getUrl('ajaxcart/index/updatecart') ?>';
+                jQuery.ajax({
+                    url: url_cart_update,
+                    method: "POST"
+                });
+                window.location.href = jQuery(this).attr('data-href');
+            }) // $('.owl-carousel').owlCarousel({ // margin: 10, // loop: true, // autoplay: true, // autoWidth: true, // autoPlay: 5000, // items: 4 // })
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                dots:false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            })
+        });
+    });
+</script>

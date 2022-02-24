@@ -1,0 +1,5 @@
+"Show Price for out-of-stock products","Mostrar el precio de los productos agotados"
+"Show Add to cart button on product page","Mostrar botón de añadir al carrito en la página del producto"
+"Show swatches for out-of-stock proudcts on product page","Mostrar muestras de productos agotados en la página del producto"
+"Show swatches even if product isnt salable (if no swatches are defined, the Select-Field wont show up)","Mostrar muestras aunque el producto no esté a la venta (si no hay muestras definidas, el campo de selección no aparecerá)"
+"Works only, if 'Show Swatches' is set to 'Yes'. Show Add-to-cart button, even if product isnt salable (if no swatches are defined, the Select-Field wont show up)","Sólo funciona, si 'Mostrar Muestras' está configurado como 'Sí'. Mostrar el botón de añadir al carro, incluso si el producto no es vendible (si no hay muestras definidas, el campo de selección no se mostrará)"

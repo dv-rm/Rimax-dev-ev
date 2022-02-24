@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var \Aventi\RimaxTheme\Block\Sales\Order $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php if ($block->isLoggedIn()): ?>
+    <li class="link my-orders-link">
+        <a <?= /* @noEscape */ $block->getLinkAttributes() ?>><?= $escaper->escapeHtml($block->getLabel()) ?></a>
+    </li>
+<?php endif; ?>

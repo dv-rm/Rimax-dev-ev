@@ -1,0 +1,22 @@
+{
+    "name": "aventi/module-rimaxtheme",
+    "description": "This is a compilation of modifications for frontend view for Rimax",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Daniel Estupiñán R",
+            "email": "destupinan@aventi.co"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Aventi\\RimaxTheme\\": ""
+        }
+    }
+}

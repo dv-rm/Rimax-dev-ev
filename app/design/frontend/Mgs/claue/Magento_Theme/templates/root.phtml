@@ -1,0 +1,114 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<!doctype html>
+<?php
+	$helper =  $this->getBuilderHelper();
+	$canUsePanel = $helper->acceptToUsePanel();
+?>
+<html class="use-<?php echo $helper->getHeaderClass() ?>" <?php /* @escapeNotVerified */ echo $htmlAttributes ?>>
+    <head <?php /* @escapeNotVerified */ echo $headAttributes ?>>
+        <?php /* @escapeNotVerified */ echo $requireJs ?>
+        <?php /* @escapeNotVerified */ echo $headContent ?>
+        <?php /* @escapeNotVerified */ echo $headAdditional ?>
+		<?php //echo $helper->getLinksFont() ?>
+		<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $helper->getMediaUrl() ?>mgs/css/<?php echo $helper->getStore()->getId() ?>/custom_config.css" />
+		<?php if($helper->showButton()): ?>
+		<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $helper->getPanelCssUrl() ?>" />
+		<?php endif ?>
+
+    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "<?php /* @escapeNotVerified */ echo $loaderIcon; ?>"}}' <?php /* @escapeNotVerified */ echo $bodyAttributes ?>>
+
+		<?php if($helper->showButton() && !$helper->isPopup()): ?>
+			<?php echo $this->getLayout()->createBlock('MGS\Mpanel\Block\Panel\Toppanel')->setTemplate('panel/toppanel.phtml')->setCacheable(false)->toHtml() ?>
+		<?php endif ?>
+
+        <?php if($helper->acceptToUsePanel() && ($helper->isHomepage() || $helper->isCmsPage())): ?>
+            <div class="page messages container" style="display: none;">
+                <?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Magento_Theme::html/messages.phtml")->toHtml(); ?>
+                <?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Messages")->setTemplate("Magento_Theme::messages.phtml")->toHtml(); ?>
+            </div>
+			<?php echo $helper->convertContent($layoutContent, $this->getLayout()->createBlock('MGS\Mpanel\Block\Panel\HomeContent')->setTemplate('panel/homecontent.phtml')->toHtml()) ?>
+		<?php else: ?>
+			<?php echo $helper->convertContent($layoutContent) ?>
+		<?php endif ?>
+
+		<?php if($canUsePanel): ?>
+			<script  type="text/javascript" src="<?php echo $this->getViewFileUrl('MGS_Mpanel::js/panel.js') ?>"></script>
+		<?php endif ?>
+
+        <?php if($helper->isHomepage()): ?>
+            <script  type="text/javascript">
+                require([
+                    'jquery'
+                ], function(jQuery){
+                    (function($) {
+                        jQuery(window).load(function(){
+                            <?php if($helper->getStoreConfig('mgstheme/general/header') == 'header_5'): ?>
+                                jQuery(".page.messages").prependTo("page-wrapper");
+                            <?php else: ?>
+                                jQuery(".page.messages").appendTo("header.header");
+                            <?php endif ?>
+                            jQuery(".page.messages").delay(8000).show().fadeOut('slow');
+                        });
+                    })(jQuery);
+                });
+            </script>
+        <?php endif ?>
+        <script  type="text/javascript">
+            require([
+                'jquery'
+            ], function(jQuery){
+                (function($) {
+                    jQuery(window).load(function(){
+                        jQuery(".page.messages").delay(8000).fadeOut('slow');
+
+                        <!-- Global site tag (gtag.js) - Google Analytics -->
+                      
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                
+                            gtag('config', 'UA-30876489-1');
+                        
+
+                        <!-- Widget - SUMR CRM -->
+                        (function(w,d,s,l,i){ var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:''; j.src='https://js.sumr.co/wdgt/'+i+'.js'; f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','a7f5d28b5b221bea0f1dd31ef1fe8c59cdbed483');
+
+                        <!-- Facebook Pixel Code -->
+                                        !function(f,b,e,v,n,t,s)
+                                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                                            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                                            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                                            n.queue=[];t=b.createElement(e);t.async=!0;
+                                            t.src=v;s=b.getElementsByTagName(e)[0];
+                                            s.parentNode.insertBefore(t,s)}(window, document,'script',
+                                        'https://connect.facebook.net/en_US/fbevents.js');
+                                        fbq('init', '1264955920209097');
+                                        fbq('track', 'PageView');
+                    <!-- End Facebook Pixel Code -->
+
+
+                    });
+
+                })(jQuery);
+            });
+
+
+        </script>
+    </body>
+</html>
+
+<style>
+    .smr_mbl_bottom  {
+        margin-bottom: 50px;
+    }
+</style>
+
+

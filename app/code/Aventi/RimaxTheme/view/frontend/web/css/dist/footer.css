@@ -1,0 +1,44 @@
+footer .footer-container .middle-footer {
+  background: #003F86;
+  border: none;
+}
+footer .footer-container .middle-footer .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+footer .footer-container .middle-footer .row div:nth-child(1) {
+  width: 100%;
+}
+footer .footer-container .middle-footer .row div:nth-child(1) .margin-bottom25 {
+  border-bottom: 1px solid #f2f3f782;
+  padding-bottom: 18px;
+  padding-left: 29px;
+}
+footer .footer-container .middle-footer .row div:nth-child(1) .margin-bottom25 a {
+  opacity: 1;
+}
+footer .footer-container .middle-footer .row div:nth-child(1) .margin-bottom25 a img {
+  width: 155px;
+}
+footer .footer-container .middle-footer .row div:nth-child(2),
+footer .footer-container .middle-footer .row div:nth-child(4),
+footer .footer-container .middle-footer .row div:nth-child(5) {
+  width: 33%;
+}
+footer .footer-container .middle-footer span,
+footer .footer-container .middle-footer p,
+footer .footer-container .middle-footer a,
+footer .footer-container .middle-footer li {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+footer .footer-container .middle-footer .social-link li > a {
+  color: #ffffff;
+  opacity: 1;
+}
+footer .footer-container .bottom-footer {
+  background: #012B59;
+}

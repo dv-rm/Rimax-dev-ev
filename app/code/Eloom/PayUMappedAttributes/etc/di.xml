@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Eloom\PayU\Helper\MappedQuoteAttributeDefinition"
+                type="Eloom\PayUMappedAttributes\Helper\MappedQuoteAttributeDefinition"/>
+
+    <preference for="Eloom\PayU\Helper\MappedOrderAttributeDefinition"
+                type="Eloom\PayUMappedAttributes\Helper\MappedOrderAttributeDefinition"/>
+
+    <!--<preference for="Magento\Checkout\Model\PaymentInformationManagement"
+    type="Eloom\PayUMappedAttributes\Plugin\Checkout\PaymentInformationManagement"/>-->
+
+</config>
+

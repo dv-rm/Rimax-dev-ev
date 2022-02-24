@@ -1,0 +1,28 @@
+{
+    "name": "Aventi/module-low-stock-notification",
+    "description": "Admin low stock notification",
+    "require": {
+        "magento/module-store": ">100.0",
+        "magento/module-backend": ">100.0",
+        "magento/framework": ">100.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+          "name": "Julian David Amaya",
+          "email": "jamaya@aventi.co"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageDad\\LowStockNotification\\": ""
+        }
+    }
+}

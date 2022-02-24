@@ -1,0 +1,648 @@
+@import "variables.less";
+
+//Colors
+@blueP: #003f86;
+@bluePDark: #012b59;
+@white: #ffffff;
+@cBorder: #dbdbdb;
+@fondoProductos: #f2f3f7;
+@red: #e63727;
+@textColorp: #012b59;
+@textprimary: #4f4f4f;
+@textsecundary: #828282;
+@textwhite: #f2f2f2;
+@colorHover: #1650c0;
+
+//fuentes
+@popins: "Poppins", sans-serif;
+
+//media screens
+
+@tablet: ~"(max-width: 768px)";
+@mobile: ~"(max-width: 480px)";
+@desktop: ~"(max-width: 1024px)";
+
+.limit-line-2 {
+    -webkit-line-clamp: 2;
+}
+
+.no-limit {
+    -webkit-line-clamp: inherit;
+}
+
+.productviewgalery {
+    .owl-stage-outer {
+        .product.item-image {
+            background: @fondoProductos;
+
+            .img-responsive {
+                min-height: 350px;
+
+                @media screen and (max-width: 768px) {
+                    min-height: 100px;
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    .item-thumb {
+        height: 100px;
+        border: 1px solid #fafafa;
+        box-shadow: 1px 2px 5px 0px #f2f2f2;
+        overflow: hidden;
+        margin: 5px 0px;
+    }
+}
+
+.mfp-gallery .mfp-image-holder .mfp-figure {
+    background: @fondoProductos;
+}
+
+#rimaxproductgallery {
+
+    //
+    .productname_mobile {
+        display: none;
+
+        h2 {
+            color: @textprimary;
+            font-size: 22px;
+        }
+    }
+
+    .product.alert.stock {
+        background: #012B59;
+        opacity: 0.9;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        margin-top: 20px;
+
+        .title-alert {
+            font-size: 14px;
+            line-height: 18px;
+            text-align: center;
+            letter-spacing: -0.24px;
+            color: #FFFFFF;
+            font-weight: 700;
+
+        }
+
+        .btn.active {
+            background: #F2F3F7;
+            border-radius: 4px;
+            margin: auto;
+            display: block;
+            width: 80%;
+            margin-top: 12px;
+            color: #012B59;
+            @media screen and (max-width: 768px) {
+                font-size: 12px;
+                overflow: hidden;
+                padding: 0px;
+                width: 100%;
+            }
+            
+        }
+    }
+
+    .product.media .vertical-gallery #vertical-thumbnail-wrapper {
+        width: 100px;
+    }
+
+    .product.media .vertical-gallery .owl-carousel.gallery-vertical {
+        width: ~"calc(100% - 100px)";
+        padding-left: 25px;
+    }
+
+    .favoriteinproduct {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 2;
+    }
+
+    .actions button {
+        height: 40px;
+        width: 40px;
+        background-color: #ffffff;
+        border: 1px solid #e6e6e6;
+        color: @blueP;
+        font-size: 18px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 40px;
+        box-shadow: none;
+        float: left;
+        box-shadow: 2px 2px 3px 1px #ececec;
+
+        &:hover {
+            border-color: @bluePDark;
+            color: @white;
+            background-color: @bluePDark;
+        }
+    }
+
+    .item-thumb {
+        .img-responsive {
+            width: 200px;
+            left: -50%;
+            top: -10%;
+            position: absolute;
+            display: inline-block;
+            max-width: none;
+        }
+    }
+
+    .product-label.new-label {
+        background-color: @blueP;
+        position: absolute;
+        left: 200px;
+        border-radius: 6px;
+        width: 80px;
+        font-weight: 600;
+    }
+
+    .stock-label {
+        background-color: @blueP;
+        position: absolute;
+        left: 300px;
+        border-radius: 6px;
+        width: 150px;
+        font-weight: 600;
+    }
+
+    @media screen and (max-width: 768px) {
+        .productname_mobile {
+            display: inline-block;
+        }
+
+        #vertical-thumbnail-wrapper {
+            display: none;
+        }
+
+        .product.media .vertical-gallery .owl-carousel.gallery-vertical {
+            width: 100%;
+            padding-left: 1px;
+        }
+
+        .product-label.new-label {
+            left: 20px;
+        }
+
+        .stock-label {
+            left: 110px;
+        }
+
+        .owl-carousel {
+            .owl-nav {
+                z-index: 2;
+
+                >div {
+                    visibility: visible;
+                    display: inline-block;
+                    z-index: 2;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+#rimaxproductinformation {
+
+    .swatch-option.image {
+        background-size: 20px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    .price {
+        color: @blueP;
+    }
+
+    .price-box.price-final_price {
+        display: flex;
+        align-items: center;
+
+        .old-price {
+            margin-left: 15px;
+        }
+    }
+
+    .old-price span {
+        color: @textprimary;
+        text-decoration: line-through;
+        font-size: 19px !important;
+    }
+
+    h5 {
+        color: @textprimary;
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .price-box .price {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .towishlist {
+        display: none;
+    }
+
+    .box-tocart .field.qty>.control {
+        position: relative;
+        height: 40px;
+        border: 1px solid #f0f0f0;
+        text-align: left;
+        border-radius: 6px;
+        display: inline-block;
+        background: #f0f0f0;
+        padding: 0 25px;
+
+        span,
+        input {
+            color: @textsecundary;
+        }
+    }
+
+    button.tocart {
+        font-size: 13px;
+        width: auto;
+        padding: 0 18px;
+        background-color: @blueP;
+        border: 1px solid @blueP;
+        color: #fff;
+        border-radius: 6px;
+        line-height: 40px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    h4.title-delivery {
+        width: 100%;
+        color: #4F4F4F;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+
+    .deliveryoptions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: flex-start;
+        gap: 12px;
+        margin-bottom: 30px;
+
+
+
+        >div {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 6px;
+
+            span {
+                color: #012B59;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 13px;
+            }
+        }
+
+        .location > svg{
+            color: #c7c7c7 !important;
+        }
+
+        >div a {
+            color: #c7c7c7;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 13px;
+
+        }
+
+    }
+
+    .btn_vermas,
+    .btn_vermenos {
+        display: none;
+
+        span {
+            color: @blueP;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    #product_addtocart_form {
+        display: flex;
+        flex-direction: column;
+
+
+        .product-options-bottom {
+            order: 4;
+        }
+
+        .swatch-opt {
+            margin-bottom: 27px;
+
+            .swatch-attribute-options {
+                margin-left: 10px;
+            }
+
+            .swatch-attribute.color {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                span {
+                    margin: 0px !important;
+                }
+
+                .swatch-attribute-label {
+                    font-size: 16px;
+                    color: #4F4F4F;
+                }
+
+                .swatch-attribute-selected-option {
+                    position: absolute;
+                    bottom: -19px;
+                    color: @textprimary ;
+                    left: 0%;
+                    padding-left: 0 !important;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 767px) {
+        .product-info-price {
+            display: none !important;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+
+        .price-box.price-final_price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .product-add-form {
+            .price-box.price-final_price {
+                display: none !important;
+            }
+        }
+
+        margin-top: 11px;
+
+        .product-info-price {
+            text-align: center;
+        }
+
+        .product-info-main {
+            display: flex;
+            flex-direction: column;
+
+            .sku {
+                position: absolute;
+                left: 25px;
+            }
+
+            h2 {
+                display: none;
+            }
+
+            .product-add-form {
+                order: -1;
+
+                .box-tocart {
+                    height: 79px;
+                    position: fixed;
+                    bottom: 0px;
+                    background: @white;
+                    background-color: @white;
+                    margin-left: -14px;
+                    padding-left: 20px;
+                    z-index: 4;
+                    width: 100%;
+                    box-shadow: 0px -10px 50px rgba(80, 80, 80, 0.2);
+
+                    .towishlist {
+                        display: none;
+                    }
+
+                    .action.primary.tocart {
+                        width: 55vw;
+                    }
+
+                    .fieldset {
+                        display: flex;
+                        justify-content: center;
+                        float: none !important;
+                        height: 100%;
+                        align-items: center;
+
+                        .actions {
+                            margin-bottom: 0px !important;
+                        }
+
+                        .field {
+                            margin-bottom: 0px !important;
+
+                            .control {
+                                padding: 0px !important;
+
+                                input {
+                                    width: 110px !important;
+                                }
+
+                            }
+                        }
+                    }
+
+
+                }
+
+                .product-options-wrapper {
+                    padding-top: 0px;
+                    background: @fondoProductos;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    margin-top: -15px;
+
+                    .swatch-opt {
+                        margin-top: 11px;
+
+                    }
+
+                    #color-error{
+                        width: 45vw;
+                        min-width: 150px;
+                        display: block;
+                        font-size: 12px;
+                    }
+
+                    .swatch-attribute-label,
+                    .swatch-attribute-selected-option {
+                        position: static !important;
+                    }
+                }
+
+                .swatch-attribute-label {
+                    display: none;
+                }
+            }
+
+            .btn_vermas,
+            .btn_vermenos {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                align-content: flex-end;
+            }
+
+            .std {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin: auto;
+                animation-duration: 4s;
+            }
+        }
+    }
+
+    .field {
+        .control {
+            padding: 0px !important;
+
+            input {
+                width: 110px !important;
+            }
+
+        }
+    }
+}
+
+#rimaxproductinformation>div>div>div.product-sub-infomation>div:nth-child(4) ul:last-child {
+    margin-bottom: 20px;
+}
+
+//Technical characteristics
+
+.technicalchars {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .charslong,
+    .charswidth,
+    .charsheight,
+    .charsweight {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: flex-start;
+    }
+
+    .charsicon {
+        display: flex;
+    }
+
+    .charsinfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+        padding-left: 5px;
+
+        .charstitle {
+            display: flex;
+            color: @blueP;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 14px;
+        }
+
+        .charstext {
+            display: flex;
+            font-size: 12px;
+        }
+    }
+}
+
+.pdf-document {
+    .btn {
+        border: 2px solid #003f86;
+        background: none;
+        color: #003f86;
+        font-weight: 600;
+        border-radius: 6px;
+        margin: 10px 0px;
+
+        &:hover {
+            background: @blueP;
+            color: @white;
+        }
+    }
+}
+
+#rimaxproductinformation>div>div>div.margin-top25.extra-link {
+    display: none !important;
+}
+
+#rimaxproductinformation>div>div>div.product-sub-infomation>div.product-info-stock-sku {
+    display: none !important;
+}
+
+@media (min-width:769px) {
+    .product-detail-infomation-sticky {
+        margin-left: 27px;
+        width: ~"calc(41% - 27px)" !important;
+    }
+
+    @media (max-width:1000px) {
+        .fieldset {
+
+            .swatch-attribute.color {
+                display: flex;
+                align-items: center;
+            }
+
+            span {
+                margin: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width:800px) {
+    #rimaxproductinformation #product_addtocart_form .swatch-opt .swatch-attribute.color{
+        flex-direction: column;
+    }
+}
+
